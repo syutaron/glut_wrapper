@@ -1,0 +1,4 @@
+﻿  Main.c
+C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(30,38): warning C4244: '+=': 'double' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(95,22): warning C4113: 'void (__cdecl *)()' はパラメーター リストが 'void (__cdecl *)(void)' と異なります。
+  gl_clock.vcxproj -> C:\Users\syutaron\source\repos\gl_clock\Debug\gl_clock.exe
