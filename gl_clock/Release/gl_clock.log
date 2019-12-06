@@ -1,16 +1,9 @@
 ﻿  Main.c
-C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(147,24): warning C4244: '関数': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(147,52): warning C4244: '関数': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(157,18): warning C4244: '関数': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(157,39): warning C4244: '関数': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(157,64): warning C4244: '関数': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(157,89): warning C4244: '関数': 'double' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(255,25): warning C4244: '関数': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(255,44): warning C4244: '関数': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(295,22): warning C4113: 'void (__cdecl *)()' はパラメーター リストが 'void (__cdecl *)(void)' と異なります。
+C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(41,27): warning C4244: '関数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(41,48): warning C4244: '関数': 'int' から 'float' への変換です。データが失われる可能性があります。
   コード生成しています。
-  8 of 19 functions (42.1%) were compiled, the rest were copied from previous compilation.
+  4 of 16 functions (25.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   gl_clock.vcxproj -> C:\Users\syutaron\source\repos\gl_clock\Release\gl_clock.exe
