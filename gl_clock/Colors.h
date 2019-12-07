@@ -18,13 +18,14 @@ enum ColorCode
 	YELLOW,
 	PURPLE,
 	BROWN
-}typedef COLOR_CODE;
+}typedef ColorCode;
 
 enum AppType
 {
 	TYPE_SHAPE,
 	TYPE_LINE,
-	TYPE_POINT
+	TYPE_POINT,
+	TYPE_CLEAR
 }typedef AType;
 
 struct color_rgb
@@ -37,11 +38,12 @@ struct color_rgb
 extern RGB g_shape_color;
 extern RGB g_lines_color;
 extern RGB g_point_color;
+extern RGB g_clear_color;
 extern GLbyte g_shape_color_a;
 extern GLbyte g_lines_color_a;
 extern GLbyte g_point_color_a;
 
-RGB codeToRGB(COLOR_CODE);
-void setColor(COLOR_CODE, AType);
-void setColorRGB(GLbyte, GLbyte, GLbyte, AType);
+RGB codeToRGB(ColorCode);
+void color(ColorCode, AType);
+void colorRGB(GLbyte, GLbyte, GLbyte, AType);
 void setAlpha(GLbyte, AType);

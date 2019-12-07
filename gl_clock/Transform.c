@@ -1,7 +1,22 @@
 #include "Transform.h"
 
-Align rect_align;
-Align circle_align;
+float g_rotation_angle;
+Align g_rect_align;
+Align g_circle_align;
+
+void setAlign(PType primitive_type, Align align)
+{
+	switch (primitive_type)
+	{
+	case TRECT:
+		g_rect_align = align;
+		break;
+
+	case TCIRCLE:
+		g_circle_align = align;
+		break;
+	}
+}
 
 // 配列から最大値を探す
 float search_max(const float* a, int size)
@@ -23,20 +38,6 @@ float search_min(const float* a, int size)
 		value = a[i] < value ? a[i] : value;
 	}
 	return value;
-}
-
-void setAlign(PType primitive_type, Align align)
-{
-	switch (primitive_type)
-	{
-	case TRECT:
-		rect_align = align;
-		break;
-
-	case TCIRCLE:
-		circle_align = align;
-		break;
-	}
 }
 
 void rotateVertex(float* x_coord, float* y_coord, int n, float origin_x, float origin_y, float theta)

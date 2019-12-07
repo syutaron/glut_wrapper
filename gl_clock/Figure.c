@@ -1,34 +1,12 @@
 #include "Figure.h"
 
-#define CIRCLE_VERTEX 100
-#define TRUE 1
-#define FALSE 0
-
 int g_width;
 int g_height;
-float g_rotation_angle;
 float g_lines_width;
-
-void linesWidth(float w)
-{
-	if (w <= 0.0f) { return; }
-	g_lines_width = w <= 10.0f ? w : 10.0f;	// 幅は10まで
-	glLineWidth(g_lines_width);
-}
-
-void ratateRad(float radian)
-{
-	g_rotation_angle = radian;
-}
-
-void rotate(float degree)
-{
-	g_rotation_angle = degree / 180.0f * (float)M_PI;
-}
+float g_point_size;
 
 void point(float x, float y)
 {
-	glPointSize(2.0f);
 	glColor4ub(g_point_color.r, g_point_color.g, g_point_color.b, g_point_color_a);
 	glBegin(GL_POINTS);
 	glVertex2f(x, y);
@@ -59,7 +37,7 @@ void rect(float x, float y, float width, float height)
 {
 	float cx[] = { x,	x,				x + width,		x + width };
 	float cy[] = { y,	y + height,		y + height,		y };
-	translateAlign(cx, cy, 4, rect_align);
+	translateAlign(cx, cy, 4, g_rect_align);
 	rotateVertex(cx, cy, 4, x, y, g_rotation_angle);
 
 	// 描画
@@ -88,7 +66,7 @@ void circle(float x, float y, float r)
 		cy[i] = sinf(theta) * r + y + r;
 	}
 
-	translateAlign(cx, cy, CIRCLE_VERTEX, circle_align);
+	translateAlign(cx, cy, CIRCLE_VERTEX, g_circle_align);
 	rotateVertex(cx, cy, CIRCLE_VERTEX, x, y, g_rotation_angle);
 
 	// ポリゴン描画

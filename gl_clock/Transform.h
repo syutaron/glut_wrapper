@@ -15,12 +15,21 @@ enum PlimitiveType
 	TRECT, TCIRCLE, TTRIANGLE, TPOLYGON
 }typedef PType;
 
-extern Align rect_align;
-extern Align circle_align;
+extern float g_rotation_angle;
+extern Align g_rect_align;
+extern Align g_circle_align;
 
-// 配列から最大値を探す
+inline void ratateRad(float radian)
+{
+	g_rotation_angle = radian;
+}
+
+inline void rotate(float degree)
+{
+	g_rotation_angle = degree / 180.0f * (float)M_PI;
+}
+
 float search_max(const float*, int);
-// 配列から最小値を探す
 float search_min(const float*, int);
 void setAlign(PType, Align);
 void rotateVertex(float*, float*, int, float, float, float);

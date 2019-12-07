@@ -1,7 +1,8 @@
 ﻿  Main.c
+C:\Users\syutaron\source\repos\gl_clock\gl_clock\Wrapper.h(20,29): warning C4090: '=': 異なる 'const' 修飾子です。
   コード生成しています。
-  4 of 17 functions (23.5%) were compiled, the rest were copied from previous compilation.
+  5 of 13 functions (38.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   gl_clock.vcxproj -> C:\Users\syutaron\source\repos\gl_clock\Release\gl_clock.exe
