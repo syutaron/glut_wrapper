@@ -1,21 +1,10 @@
-enum Align
-{
-	LEFT_TOP, CENTER_TOP, RIGHT_TOP,
-	LEFT_CENTER, CENTER, RIGHT_CENTER,
-	LEFT_BOTTOM, CENTER_BOTTOM, RIGHT_BOTTOM
-}typedef Align;
+#include "Transform.h"
 
 Align rect_align;
 Align circle_align;
 
-
-enum Plimitive_type
-{
-	TRECT, TCIRCLE, TTRIANGLE, TPOLYGON
-}typedef Type;
-
 // 配列から最大値を探す
-float search_max(float* a, int size)
+float search_max(const float* a, int size)
 {
 	float value = a[0];
 	for (int i = 1; i < size; i++)
@@ -26,7 +15,7 @@ float search_max(float* a, int size)
 }
 
 // 配列から最小値を探す
-float search_min(float* a, int size)
+float search_min(const float* a, int size)
 {
 	float value = a[0];
 	for (int i = 1; i < size; i++)
@@ -34,6 +23,20 @@ float search_min(float* a, int size)
 		value = a[i] < value ? a[i] : value;
 	}
 	return value;
+}
+
+void setAlign(PType primitive_type, Align align)
+{
+	switch (primitive_type)
+	{
+	case TRECT:
+		rect_align = align;
+		break;
+
+	case TCIRCLE:
+		circle_align = align;
+		break;
+	}
 }
 
 void rotateVertex(float* x_coord, float* y_coord, int n, float origin_x, float origin_y, float theta)
@@ -54,7 +57,7 @@ void rotateVertex(float* x_coord, float* y_coord, int n, float origin_x, float o
 void translateAlign(float* x_coord, float* y_coord, int size, Align align)
 {
 	// 矩形範囲を調べる
-	float area_width  = search_max(x_coord, size) - search_min(x_coord, size);
+	float area_width = search_max(x_coord, size) - search_min(x_coord, size);
 	float area_height = search_max(y_coord, size) - search_min(y_coord, size);
 
 	float move_distance_x = 0;
@@ -85,19 +88,5 @@ void translateAlign(float* x_coord, float* y_coord, int size, Align align)
 		x_coord[i] = x_coord[i] + move_distance_x;
 		y_coord[i] = y_coord[i] + move_distance_y;
 
-	}
-}
-
-void setAlign(Type primitive_type, Align align)
-{
-	switch (primitive_type)
-	{
-	case TRECT:
-		rect_align = align;
-		break;
-
-	case TCIRCLE:
-		circle_align = align;
-		break;
 	}
 }

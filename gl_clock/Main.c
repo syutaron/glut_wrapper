@@ -1,46 +1,38 @@
-#define _USE_MATH_DEFINES
-
-#include <stdio.h>
-#include "Primitive.h"
+#include "Figure.h"
 
 void Disp(void);
 void Reshape(int, int);
 void Timer(int);
 
-void AppInit()
+void appInit()
 {
-	rotation_angle		= 0;
-	is_draw_outline		= TRUE;
-	lines_width			= 1.0f;
+	g_rotation_angle	= 0;
+	g_lines_width		= 1.0f;
 	rect_align			= LEFT_TOP;
 	circle_align		= CENTER;
-	surface_color_r		= 0x00;
-	surface_color_g		= 0x00;
-	surface_color_b		= 0x00;
-	surface_color_a		= 0xff;
-	lines_color_r		= 0x00;
-	lines_color_g		= 0x00;
-	lines_color_b		= 0x00;
-	lines_color_a		= 0xff;
-	point_color_r		= 0x00;
-	point_color_g		= 0x00;
-	point_color_b		= 0x00;
-	point_color_a		= 0xff;
+	g_shape_color.r		= 0x00;
+	g_shape_color.g		= 0x00;
+	g_shape_color.b		= 0x00;
+	g_shape_color_a		= 0xff;
+	g_lines_color.r		= 0x00;
+	g_lines_color.g		= 0x00;
+	g_lines_color.b		= 0x00;
+	g_lines_color_a		= 0xff;
+	g_point_color.r		= 0x00;
+	g_point_color.g		= 0x00;
+	g_point_color.b		= 0x00;
+	g_point_color_a		= 0xff;
 
-	window_width = glutGet(GLUT_WINDOW_WIDTH);
-	window_height = glutGet(GLUT_WINDOW_HEIGHT);
+	g_width = glutGet(GLUT_WINDOW_WIDTH);
+	g_height = glutGet(GLUT_WINDOW_HEIGHT);
 	glutReshapeWindow(800, 800);
 }
 
-int a = 0;
 void AppUpdate()
 {
-	for (int i = 0; i < 9; i++)
-	{
-		setAlign(TRECT, (Align)i);
-		rect((i % 3) * 150 + 100, (i / 3) * 150 + 100, 50, 50);
-	}
-	rotation_angle += 0.1f;
+	setColorRGB(123, 40, 123, TYPE_SHAPE);
+	rect(30, 30, 30, 30);
+	line(30, 30, 120, 120);
 }
 
 void Disp(void) 
@@ -59,8 +51,8 @@ void Reshape(int w, int h)
 	gluOrtho2D(0, w, 0, h);
 	glScaled(1, -1, 1);
 	glTranslated(0, -h, 0);
-	window_width = glutGet(GLUT_WINDOW_WIDTH);
-	window_height = glutGet(GLUT_WINDOW_HEIGHT);
+	g_width = glutGet(GLUT_WINDOW_WIDTH);
+	g_height = glutGet(GLUT_WINDOW_HEIGHT);
 }
 
 void Timer(int value)
@@ -74,11 +66,11 @@ int main(int argc, char** argv) {
 	glutInitWindowPosition(100, 50);
 	glutInitWindowSize(300, 300);
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
-	glutCreateWindow("Hello GLUT!!");
+	glutCreateWindow("GLUT application");
 	glutDisplayFunc(Disp);
 	glutReshapeFunc(Reshape);
-	AppInit();
 	glClearColor(255, 255, 255, 255);
+	appInit();
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

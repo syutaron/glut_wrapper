@@ -146,12 +146,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Colors.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="Figure.c" />
+    <ClCompile Include="Transform.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Colors.h" />
-    <ClInclude Include="Constants.h" />
-    <ClInclude Include="Primitive.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="Figure.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
