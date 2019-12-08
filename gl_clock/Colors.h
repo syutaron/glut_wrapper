@@ -43,7 +43,15 @@ extern GLbyte g_shape_color_a;
 extern GLbyte g_lines_color_a;
 extern GLbyte g_point_color_a;
 
+inline void applyClearColor()
+{
+	float clear_r = (float)((unsigned char)g_clear_color.r) / 255.0f;
+	float clear_g = (float)((unsigned char)g_clear_color.g) / 255.0f;
+	float clear_b = (float)((unsigned char)g_clear_color.b) / 255.0f;
+	glClearColor(clear_r, clear_g, clear_b, 1.0f);
+}
+
 RGB codeToRGB(ColorCode);
-void color(ColorCode, AType);
-void colorRGB(GLbyte, GLbyte, GLbyte, AType);
-void setAlpha(GLbyte, AType);
+void setColor(AType, ColorCode);
+void setColorRGB(AType, GLbyte, GLbyte, GLbyte);
+void setAlpha(AType, GLbyte);

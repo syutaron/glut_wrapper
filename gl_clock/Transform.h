@@ -2,6 +2,9 @@
 
 #pragma once
 #include <math.h>
+#include <windows.h>
+#include <GL/gl.h>
+#include <GL/glut.h>
 
 enum Align
 {
@@ -12,14 +15,14 @@ enum Align
 
 enum PlimitiveType
 {
-	TRECT, TCIRCLE, TTRIANGLE, TPOLYGON
+	TYPE_RECT, TYPE_CIRCLE, TYPE_TRIANGLE, TYPE_POLYGON
 }typedef PType;
 
 extern float g_rotation_angle;
 extern Align g_rect_align;
 extern Align g_circle_align;
 
-inline void ratateRad(float radian)
+inline void rotateRad(float radian)
 {
 	g_rotation_angle = radian;
 }

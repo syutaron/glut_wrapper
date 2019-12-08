@@ -1,7 +1,13 @@
-﻿  Main.c
-C:\Users\syutaron\source\repos\gl_clock\gl_clock\Wrapper.h(20,29): warning C4090: '=': 異なる 'const' 修飾子です。
+﻿  Figure.c
+  Main.c
+C:\Users\syutaron\source\repos\gl_clock\gl_clock\Figure.c(70,44): warning C4020: 'translateAlign': 実引数が多すぎます。
+C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(25,31): warning C4244: '関数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(25,52): warning C4244: '関数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(26,32): warning C4244: '関数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  Transform.c
+C:\Users\syutaron\source\repos\gl_clock\gl_clock\Main.c(26,53): warning C4244: '関数': 'int' から 'float' への変換です。データが失われる可能性があります。
   コード生成しています。
-  5 of 13 functions (38.5%) were compiled, the rest were copied from previous compilation.
+  6 of 29 functions (20.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     2 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。

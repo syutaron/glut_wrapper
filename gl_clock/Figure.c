@@ -5,7 +5,7 @@ int g_height;
 float g_lines_width;
 float g_point_size;
 
-void point(float x, float y)
+void drawPoint(float x, float y)
 {
 	glColor4ub(g_point_color.r, g_point_color.g, g_point_color.b, g_point_color_a);
 	glBegin(GL_POINTS);
@@ -13,7 +13,7 @@ void point(float x, float y)
 	glEnd();
 }
 
-void line(float x0, float y0, float x1, float y1)
+void drawLine(float x0, float y0, float x1, float y1)
 {
 	glColor4ub(g_lines_color.r, g_lines_color.g, g_lines_color.b, g_lines_color_a);
 	glBegin(GL_LINES);
@@ -22,7 +22,7 @@ void line(float x0, float y0, float x1, float y1)
 	glEnd();
 }
 
-void triangle(float x0, float y0, float x1, float y1, float x2, float y2)
+void drawTriangle(float x0, float y0, float x1, float y1, float x2, float y2)
 {
 	// 描画
 	glColor4ub(g_shape_color.r, g_shape_color.g, g_shape_color.b, g_shape_color_a);
@@ -33,14 +33,14 @@ void triangle(float x0, float y0, float x1, float y1, float x2, float y2)
 	glEnd();
 }
 
-void rect(float x, float y, float width, float height)
+void drawRect(float x, float y, float width, float height)
 {
-	float cx[] = { x,	x,				x + width,		x + width };
-	float cy[] = { y,	y + height,		y + height,		y };
+	float cx[] = { x,	x,				x + width,		x + width	};
+	float cy[] = { y,	y + height,		y + height,		y			};
+
 	translateAlign(cx, cy, 4, g_rect_align);
 	rotateVertex(cx, cy, 4, x, y, g_rotation_angle);
 
-	// 描画
 	glColor4ub(g_shape_color.r, g_shape_color.g, g_shape_color.b, g_shape_color_a);
 	glBegin(GL_QUADS);
 	for (int i = 0; i < 4; i++)
@@ -48,9 +48,10 @@ void rect(float x, float y, float width, float height)
 		glVertex2f(cx[i], cy[i]);
 	}
 	glEnd();
+
 }
 
-void circle(float x, float y, float r)
+void drawCircle(float x, float y, float r)
 {
 	float cx[CIRCLE_VERTEX];
 	float cy[CIRCLE_VERTEX];
@@ -66,7 +67,7 @@ void circle(float x, float y, float r)
 		cy[i] = sinf(theta) * r + y + r;
 	}
 
-	translateAlign(cx, cy, CIRCLE_VERTEX, g_circle_align);
+	translateAlign(cx, cy, CIRCLE_VERTEX, x, y, g_circle_align);
 	rotateVertex(cx, cy, CIRCLE_VERTEX, x, y, g_rotation_angle);
 
 	// ポリゴン描画
@@ -79,7 +80,7 @@ void circle(float x, float y, float r)
 	glEnd();
 }
 
-void polygone(float* x, float* y, int n)
+void drawPolygone(float* x, float* y, int n)
 {
 	glColor4ub(g_lines_color.r, g_lines_color.g, g_lines_color.b, g_lines_color_a);
 	glBegin(GL_POLYGON);

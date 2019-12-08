@@ -9,21 +9,21 @@ extern int g_height;
 extern float g_lines_width;
 extern float g_point_size;
 
-void circle(float, float, float);
-void rect(float, float, float, float);
-void triangle(float, float, float, float, float, float);
-void point(float, float);
-void line(float, float, float, float);
-void polygone(float*, float*, int);
+void drawCircle(float, float, float);
+void drawRect(float, float, float, float);
+void drawTriangle(float, float, float, float, float, float);
+void drawPoint(float, float);
+void drawLine(float, float, float, float);
+void drawPolygone(float*, float*, int);
 
-inline void lineWidth(float w)
+inline void setLineWidth(float w)
 {
 	if (w <= 0.0f) { return; }
 	g_lines_width = w <= 10.0f ? w : 10.0f;	// 幅は10まで
 	glLineWidth(g_lines_width);
 }
 
-inline void pointSize(float s)
+inline void setPointSize(float s)
 {
 	g_point_size = s <= 10.0f ? s : 10.0f;
 	glPointSize(g_point_size);

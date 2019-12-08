@@ -85,29 +85,34 @@ RGB codeToRGB(ColorCode code)
 	}
 }
 
-void color(ColorCode code, AType type)
+void setColor(AType type, ColorCode code)
 {
 	switch (type)
 	{
 	case TYPE_SHAPE:
 		g_shape_color = codeToRGB(code);
 		break;
+
 	case TYPE_LINE:
 		g_lines_color = codeToRGB(code);
 		break;
+
 	case TYPE_POINT:
 		g_point_color = codeToRGB(code);
 		break;
+
 	case TYPE_CLEAR:
 		g_clear_color = codeToRGB(code);
+		applyClearColor();
 		break;
+
 	default:
 		g_shape_color = codeToRGB(code);
 		break;
 	}
 }
 
-void colorRGB(GLbyte r, GLbyte g, GLbyte b, AType type)
+void setColorRGB(AType type, GLbyte r, GLbyte g, GLbyte b)
 {
 	RGB col = { r, g, b };
 
@@ -127,6 +132,7 @@ void colorRGB(GLbyte r, GLbyte g, GLbyte b, AType type)
 
 	case TYPE_CLEAR:
 		g_clear_color = col;
+		applyClearColor();
 		break;
 
 	default:
@@ -135,7 +141,7 @@ void colorRGB(GLbyte r, GLbyte g, GLbyte b, AType type)
 	}
 }
 
-void setAlpha(GLbyte a, AType type)
+void setAlpha(AType type, GLbyte a)
 {
 	switch (type)
 	{
@@ -147,6 +153,8 @@ void setAlpha(GLbyte a, AType type)
 		break;
 	case TYPE_POINT:
 		g_point_color_a = a;
+		break;
+	case TYPE_CLEAR:
 		break;
 	default:
 		g_shape_color_a = a;

@@ -8,11 +8,11 @@ void setAlign(PType primitive_type, Align align)
 {
 	switch (primitive_type)
 	{
-	case TRECT:
+	case TYPE_RECT:
 		g_rect_align = align;
 		break;
 
-	case TCIRCLE:
+	case TYPE_CIRCLE:
 		g_circle_align = align;
 		break;
 	}
